@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格练习</title>
+    <style>
+        table {
+            border-collapse: 12;
+            border: 2px solid black;
+            width: 100%;
+        }
+        th, td {
+            border: 2px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: red;
+            font-weight: bold;
+            font-size: larger;
+            text-align: center;
+        }
+        caption {
+            font-weight: bold;
+            font-size: x-large;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        td.my-class {
+            font-style: italic;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>哈理工-test寝室</caption>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>学号</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td>2021001</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>2021002</td>
+            </tr>
+            <tr>
+                <td class="my-class">黄勉嘉</td>
+                <td class="my-class">2201020106</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
