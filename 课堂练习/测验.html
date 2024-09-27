@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>测验</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <label for="birthday">生日:</label>
+        <input type="date" id="birthday" name="birthday"><br><br>
+
+        <label for="province">省份:</label>
+        <select id="province" name="province">
+            <option value="heilongjiang">黑龙江</option>
+            <option value="jilin">吉林</option>
+            <option value="guangdong">广东</option>
+            <option value="zhejiang">浙江</option>
+        </select><br><br>
+
+        <label>性别:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">男</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">女</label>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">其他</label><br><br>
+
+        <label for="hobbies">兴趣爱好:</label><br>
+        <input type="checkbox" id="reading" name="hobbies" value="reading">
+        <label for="reading">阅读</label><br>
+        <input type="checkbox" id="traveling" name="hobbies" value="traveling">
+        <label for="traveling">旅行</label><br>
+        <input type="checkbox" id="sports" name="hobbies" value="sports">
+        <label for="sports">运动</label><br><br>
+
+        <label for="introduction">自我介绍:</label><br>
+        <textarea id="introduction" name="introduction" rows="4" cols="50"></textarea><br><br>
+
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>
