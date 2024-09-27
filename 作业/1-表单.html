@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单作业</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+        .buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .buttons input {
+            width: 45%;
+            margin: 5px;
+        }
+        .sex_input {
+            display: inline-block;
+            width: auto;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        .sex_lable {
+            display: inline-block;
+            width: auto;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="post" novalidate>
+        <label for="username">用户名:</label>
+        <input type="text" id="username" name="username">
+
+        <label for="password">密码:</label>
+        <input type="password" id="password" name="password">
+
+        <label for="bio">个人简介:</label>
+        <textarea id="bio" name="bio" rows="3" placeholder="你的姓名和学号"></textarea>
+        <label for="birthyear">出生年份:</label>
+        <input type="date"/>
+        <label>性别:</label>
+        <label for="male" class="sex_lable">男</label>
+        <input type="radio" id="male" class="sex_input" name="gender" value="male">
+        <label for="female" class="sex_lable">女</label>
+        <input type="radio" id="female" class="sex_input" name="gender" value="female">
+        <label for="other" class="sex_lable">其他</label>
+        <input type="radio" id="other" class="sex_input" name="gender" value="other">
+
+        <div class="buttons">
+            <input type="submit" value="提交">
+            <input type="reset" value="重置">
+        </div>
+    </form>
+</body>
+</html>
