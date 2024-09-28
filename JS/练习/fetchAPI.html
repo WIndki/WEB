@@ -1,0 +1,30 @@
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>fetch调API</title>
+</head>
+<body>
+    <p id="hitokoto">
+    </p>
+    <button id="fetchNew">获取</button>
+</body>
+<script>
+    let button = document.querySelector('#fetchNew');
+    button.addEventListener('click', async () => {
+        fetch('https://v1.hitokoto.cn')
+            .then((response) => response.json())
+            .then((data) => {
+                let hitokoto = document.querySelector('#hitokoto');
+                let newLink = document.createElement('a');
+                let newblank = document.createElement('br')
+                newLink.href = `https://hitokoto.cn/?uuid=${data.uuid}`;
+                newLink.innerText = data.hitokoto;
+                hitokoto.appendChild(newLink);
+                hitokoto.appendChild(newblank);
+            })
+            .catch(console.error)
+    });
+</script>
+</html>
+</script>
+</html>

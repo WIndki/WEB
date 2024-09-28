@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频播放器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://i.piantu.cn/i/0/2024/09/66f807874c62f.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .videoplayer{
+            width: 80%;
+            height: 80%;
+            background: rgba(248, 248, 248, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .artplayer-app {
+                width: 95%;
+                height: 95%;
+        }
+        .panel {
+            border-radius: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        input[type="file"]{
+            margin-bottom: 10px;
+            display: block;
+            margin-left: 25%;
+            margin-right: auto;
+        }
+        input[type="text"] {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="videoplayer">
+    <h1>视频播放器</h1>
+    <div class="artplayer-app"></div>
+    <div class="panel">
+    <label for="fileInput">选择本地文件</label>
+    <input type="file" id="fileInput" accept="video/*,.mkv" >
+    <input type="text" id="urlInput" placeholder="输入视频URL">
+    <button id="urlButton">播放URL视频</button>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.js"></script>
+    <script>
+
+        const fileInput = document.getElementById('fileInput');
+        const urlInput = document.getElementById('urlInput');
+        const urlButton = document.getElementById('urlButton');
+
+        fileInput.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const fileURL = URL.createObjectURL(file);
+                art.url = fileURL;
+            }
+        });
+
+        urlButton.addEventListener('click', (playURL)=>{
+            const url = urlInput.value;
+            if (playURL)
+                art.url = url;
+            }
+        );
+
+        let art = new Artplayer({
+            container: '.artplayer-app',
+            setting: true,
+            fullscreen: true,
+            fullscreenWeb: true,
+        });
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>异步API</title>
+</head>
+<body>
+    <div>
+        <p>Name:
+        <input type="text" id="name" value="未知"/>
+        </p>
+        <p>Delay:
+        <input type="text" id="delay" value="1000"/>
+        </p>
+        <button id="setAlarm">Set alarm</button>
+    </div>
+    <div id="output">
+    </div>
+</body>
+<script>
+    let name = document.querySelector('#name');
+    let delay = document.querySelector('#delay');
+    let setAlarm = document.querySelector('#setAlarm');
+    let output = document.querySelector('#output');
+
+    function alarm(name,delay){
+        return new Promise((resolve,reject)=>{
+            if(delay < 0 ){
+                throw new Error("不能为负");
+            }
+            setTimeout(()=>{
+                resolve("wake up,"+name+"!");
+            },delay);
+        });
+    }
+
+    setAlarm.addEventListener('click',async () => {
+        try {
+            let message = await alarm(name.value, parseInt(delay.value));
+            output.innerHTML += message;
+            output.innerHTML += "<br>";
+        } catch (e) {
+            output.innerHTML = e.message;
+        }
+    });
+
+</script>
+</html>

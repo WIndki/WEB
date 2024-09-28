@@ -1,0 +1,86 @@
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+  <style>
+    div{
+      width: 100%;
+    }
+    #output{
+      width: 100%;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <input type="text" id="start" name="start"/>
+    <input type="text" id="end" name="end"/>
+    <button id="generate" name="prime">生成素数</button>
+    <button id="generate" name="fibonacci">生成斐波那契数列</button>
+    <button id="clean">清空</button>
+    <br>
+    <p id="output"></p>
+  </div>
+</body>
+<script>
+  let start = document.querySelector('#start');
+  let end = document.querySelector('#end');
+  let generates = document.querySelectorAll('#generate');
+  let clean = document.querySelector('#clean');
+  for(let i=0; i<generates.length;i++){
+    generates[i].onclick = function(){
+      let output = document.querySelector('#output');
+      let startValue = parseInt(start.value);
+      let endValue = parseInt(end.value);
+      let result = [];
+      if(this.name == 'prime'){
+        result = generatePrimeNumber(startValue, endValue);
+      }else if(this.name == 'fibonacci'){
+        result = generateFibonacci(startValue);
+      }
+      output.innerHTML = result.join(',');
+    }
+  }
+
+  clean.onclick = function() {
+    output.innerHTML = '';
+  }
+
+  function generatePrimeNumber(start,end){
+    var result = [];
+    for(var i = start; i <= end; i++){
+      if(isPrimeNumber(i)){
+        result.push(i);
+      }
+    }
+    return result;
+  }
+
+  function isPrimeNumber(num){
+    if(num <= 1){
+      return false;
+    }
+    for(var i = 2; i < num; i++){
+      if(num % i == 0){
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function generateFibonacci(n){
+    var result = [];
+    for(var i = 0; i < n; i++){
+      if(i <= 1){
+        result.push(i);
+      }else{
+        result.push(result[i-1] + result[i-2]);
+      }
+    }
+    return result;
+  }
+
+</script>
+</html>
