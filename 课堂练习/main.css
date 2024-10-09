@@ -1,0 +1,10 @@
+.absolute-size {
+    width: 580pt;
+    height: 6ch;
+    background-color: greenyellow;
+}
+.relative-size {
+    width: 88%;
+    height: 36ch;
+    background-color: red;
+}
