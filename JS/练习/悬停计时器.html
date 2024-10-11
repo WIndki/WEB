@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>悬停计时器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 3em;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="timer">0</h1>
+
+    <script>
+        let timerElement = document.getElementById('timer');
+        let timer = 0;
+        let interval;
+
+        document.body.addEventListener('mouseenter', () => {
+            interval = setInterval(() => {
+                timer++;
+                timerElement.textContent = timer;
+            }, 1000);
+        });
+
+        document.body.addEventListener('mouseleave', () => {
+            clearInterval(interval);
+        });
+
+        document.addEventListener('mousemove', (event) => {
+            timerElement.style.position = 'absolute';
+            timerElement.style.left = `${event.pageX}px`;
+            timerElement.style.top = `${event.pageY}px`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        a.byes:hover {
+            background-color: hsl(200, 100%, 50%);
+            font-size: 1.5em;
+        }
+        a.byes::after {
+            content: "黄勉嘉 2201020106";
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <a href="#" class="byes">通过css实现</a>
+    <br>
+    <a href="#" class="byes">通过css实现</a>
+    </div>
+</body>
+<script>
+</script>
+</html>

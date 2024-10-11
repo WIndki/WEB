@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ball Collision</title>
+    <style>
+        canvas {
+            display: block;
+            margin: 0 auto;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1600" height="1200"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        const balls = [];
+
+        class Ball {
+            constructor(x, y, vx, vy, radius, color) {
+                this.x = x;
+                this.y = y;
+                this.vx = vx;
+                this.vy = vy;
+                this.radius = radius;
+                this.color = color;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.closePath();
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Check for collision with walls
+                if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
+                    this.vx = -this.vx;
+                }
+                if (this.y + this.radius > canvas.height || this.y - this.radius < 0) {
+                    this.vy = -this.vy;
+                }
+
+                // Check for collision with other balls
+                for (let ball of balls) {
+                    if (ball !== this) {
+                        const dx = this.x - ball.x;
+                        const dy = this.y - ball.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < this.radius + ball.radius) {
+                            // Simple elastic collision
+                            const angle = Math.atan2(dy, dx);
+                            const speed1 = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+                            const speed2 = Math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy);
+
+                            this.vx = speed2 * Math.cos(angle);
+                            this.vy = speed2 * Math.sin(angle);
+                            ball.vx = speed1 * Math.cos(angle + Math.PI);
+                            ball.vy = speed1 * Math.sin(angle + Math.PI);
+                        }
+                    }
+                }
+            }
+        }
+
+        function init() {
+            const numBalls = 400;
+            for (let i = 0; i < numBalls; i++) {
+                const radius = (Math.random() * 20) + 10;
+                const x = Math.random() * (canvas.width - 2 * radius) + radius;
+                const y = Math.random() * (canvas.height - 2 * radius) + radius;
+                const vx = (Math.random() - 0.5) * 4;
+                const vy = (Math.random() - 0.5) * 4;
+                const color = `hsl(${Math.random() * 360}, 50%, 50%)`;
+                balls.push(new Ball(x, y, vx, vy, radius, color));
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let ball of balls) {
+                ball.update();
+                ball.draw();
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+    </script>
+</body>
+</html>
