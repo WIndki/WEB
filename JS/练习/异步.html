@@ -33,7 +33,17 @@
         });
     }
 
-    setAlarm.addEventListener('click',async () => {
+    // setAlarm.addEventListener('click',async () => {
+    //     try {
+    //         let message = await alarm(name.value, parseInt(delay.value));
+    //         output.innerHTML += message;
+    //         output.innerHTML += "<br>";
+    //     } catch (e) {
+    //         output.innerHTML = e.message;
+    //     }
+    // });
+
+    setAlarm.onclick = async function () {
         try {
             let message = await alarm(name.value, parseInt(delay.value));
             output.innerHTML += message;
@@ -41,7 +51,7 @@
         } catch (e) {
             output.innerHTML = e.message;
         }
-    });
+    }
 
 </script>
 </html>
