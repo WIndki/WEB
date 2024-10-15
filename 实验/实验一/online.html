@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>在线报名表</title>
+    <style>
+    .panel {
+        width:800px;
+        margin:0 auto;
+        padding: 2px;
+    }
+    table, td {
+        border: 1px solid black;
+        padding: 5px;
+        min-width: 75px;
+        background-color: green;
+        border-radius: 5px;
+    }
+    td.blue {
+        background-color: aqua;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <div class="panel">
+    <h2 style="text-align: center;">在线报名表</h2>
+    <form action="/submit" method="post">
+        <table>
+            <tr>
+                <td class="blue" width="110">姓名:</td>
+                <td><input type="text" name="name" required></td>
+                <td class="blue">性别:</td>
+                <td>
+                    <input type="radio" name="gender" value="male" required> 男
+                    <input type="radio" name="gender" value="female" required> 女
+                </td>
+                <td class="blue">民族:</td>
+                <td>
+                    <select name="nation" required>
+                        <option value="nation1">汉族</option>
+                        <option value="nation2">外星人</option>
+                        <option value="nation3">火星人</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="blue">出生日期:</td>
+                <td>
+                    <select>
+                    <option value="year1">1999</option>
+                    <option value="year2">2000</option>
+                    <option value="year3">2001</option>
+                    </select>
+                    年
+                    <select>
+                    <option value="month1">1</option>
+                    <option value="month2">2</option>
+                    <option value="month3">3</option>
+                    <option value="month4">4</option>
+                    </select>
+                    月
+                </td>
+                <td class="blue">爱好:</td>
+                <td><input type="text" name="hobbies"></td>
+                <td class="blue">省份:</td>
+                <td>
+                    <select>
+                        <option value="province1">省份1</option>
+                        <option value="province2">省份2</option>
+                        <option value="province3">省份3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="blue">毕业院校：</td>
+                <td>
+                    <select name="school" required>
+                        <option value="school1">学校1</option>
+                        <option value="school2">学校2</option>
+                        <option value="school3">学校3</option>
+                    </select>
+                </td>
+                <td class="blue">专业</td>
+                <td>
+                    <select name="major" required>
+                        <option value="major1">专业1</option>
+                        <option value="major2">专业2</option>
+                        <option value="major3">专业3</option>
+                    </select>
+                </td>
+                <td class="blue">学历</td>
+                <td>
+                    <select name="education" required>
+                        <option value="education1">学历1</option>
+                        <option value="education2">学历2</option>
+                        <option value="education3">学历3</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td class="blue" style="width: auto;">自我简介:</td>
+                <td>
+                    <textarea name="introduction" cols="95" rows="9" required></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" style="text-align: center;">
+                    <input type="submit" value="提交">
+                    <input type="reset" value="重置">
+                </td>
+            </tr>
+        </table>
+    </form>
+    </div>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const output = document.createElement('div');
+            output.classList.add('panel');
+            output.innerHTML = '<h2 style="text-align: center;">提交结果</h2>';
+            formData.forEach((value, key) => {
+                const p = document.createElement('p');
+                p.textContent = `${key}: ${value}`;
+                output.appendChild(p);
+            });
+            document.body.appendChild(output);
+        });
+        document.querySelector('form').addEventListener('reset', function() {
+            alert("重置成功")
+        });
+    </script>
+</body>
+</html>

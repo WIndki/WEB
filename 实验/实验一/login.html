@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body{
+            background-color: white;
+        }
+        form{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        input{
+            height: 30px;
+            display: block;
+        }
+        input[type="text"], input[type="password"]{
+            height: 18px;
+            margin-bottom: 10px;
+        }
+        input[type="submit"]{
+            width: 170px;
+        }
+        .remembercheck{
+            width: 100%;
+            display: inline;
+            text-align: center;
+        }
+        input[type="checkbox"]{
+            display: inline;
+            height: 100%;
+        }
+        label{
+            display: inline;
+            margin-bottom: 7px;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <br>
+        <form method="post" action="/login"">
+            <h2>用户登录</h2>
+            <input type="text" placeholder="用户名" value="admin" required>
+            <input type="password" placeholder="密码" required>
+                <div class="remembercheck">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">记住我</label>
+                </div>
+            <input type="submit" value="登录">
+        </form>
+    </div>
+</body>
+</html>

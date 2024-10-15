@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格</title>
+    <style>
+        table {
+            width: 80%;
+            padding: 1px;
+            border: 1px solid red;
+        }
+        th {
+            background-color: green;
+            font-weight: bold;
+            color: black;
+        }
+        th, td {
+            border: 1px solid red;
+            padding: 4px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        tr:nth-child(even) {
+            background-color: rgb(223, 241, 143);
+        }
+        tr:nth-child(odd) {
+            background-color: rgb(223, 176, 57);
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th width="30">序号</th>
+                <th width="50">班级</th>
+                <th width="100">学号</th>
+                <th width="50">姓名</th>
+                <th width="30">性别</th>
+                <th width="100">出生年月</th>
+                <th width="110">电话</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>计算机22-6</td>
+                <td>2201020106</td>
+                <td>黄勉嘉</td>
+                <td>男</td>
+                <td>2002年11月21日</td>
+                <td>13316068672</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>班级2</td>
+                <td>学号2</td>
+                <td>姓名2</td>
+                <td>性别2</td>
+                <td>出生年月2</td>
+                <td>电话2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>班级3</td>
+                <td>学号3</td>
+                <td>姓名3</td>
+                <td>性别3</td>
+                <td>出生年月3</td>
+                <td>电话3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>班级4</td>
+                <td>学号4</td>
+                <td>姓名4</td>
+                <td>性别4</td>
+                <td>出生年月4</td>
+                <td>电话4</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>班级5</td>
+                <td>学号5</td>
+                <td>姓名5</td>
+                <td>性别5</td>
+                <td>出生年月5</td>
+                <td>电话5</td>
+            </tr>
+        </tbody>
+    </table>
+    <form id="addRowForm">
+        <input type="text" id="class" placeholder="班级" required>
+        <input type="text" id="studentId" placeholder="学号" required>
+        <input type="text" id="name" placeholder="姓名" required>
+        <input type="text" id="gender" placeholder="性别" required>
+        <input type="text" id="dob" placeholder="出生年月" required>
+        <input type="text" id="phone" placeholder="电话" required>
+        <button type="button" onclick="addRow()">添加信息</button>
+    </form>
+
+    <script>
+        function addRow() {
+            const table = document.querySelector("table tbody");
+            const rowCount = table.rows.length + 1;
+            const classValue = document.getElementById("class").value;
+            const studentIdValue = document.getElementById("studentId").value;
+            const nameValue = document.getElementById("name").value;
+            const genderValue = document.getElementById("gender").value;
+            const dobValue = document.getElementById("dob").value;
+            const phoneValue = document.getElementById("phone").value;
+
+            const newRow = table.insertRow();
+            newRow.innerHTML = `
+                <td>${rowCount}</td>
+                <td>${classValue}</td>
+                <td>${studentIdValue}</td>
+                <td>${nameValue}</td>
+                <td>${genderValue}</td>
+                <td>${dobValue}</td>
+                <td>${phoneValue}</td>
+            `;
+
+            document.getElementById("addRowForm").reset();
+        }
+    </script>
+</body>
+</html>
