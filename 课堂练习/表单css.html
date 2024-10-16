@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 400px;
+        }
+        thead {
+            background-image: url('bg.png');
+            background-repeat: no-repeat;
+            background-position: 0% 0%;
+        }
+        th, td {
+            text-align: center;
+            padding: 8px;
+        }
+        
+        tr:not(.header,tfoot tr):nth-child(even) {
+            background-color: #f7ef05;
+        }
+        tr:not(.header,tfoot tr):nth-child(odd) {
+            background-color: #1aed79;
+        }
+        tr.header {
+            font-weight: bold;
+        }
+        th {
+            color: black;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+        
+        tfoot {
+            font-style: italic;
+            text-align: right;
+            color: gray;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+        }
+        
+        table {
+            border: 3px dashed skyblue;
+        }
+        
+        .table-end {
+            position: relative;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            color: blue;
+        }
+        .table-title {
+            font-size: 15px;
+            font-style: italic;
+            text-align: right;
+            color: gray;
+            caption-side: bottom;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr class="header">
+        <th>表头1</th>
+        <th>表头2</th>
+        <th>表头3</th>
+        <th>表头4</th>
+    </tr>
+    </thead>
+    <tr>
+        <td>格子11</td>
+        <td>格子12</td>
+        <td>格子13</td>
+        <td>格子14</td>
+    </tr>
+    <tr>
+        <td>格子21</td>
+        <td>格子22</td>
+        <td>格子23</td>
+        <td>格子24</td>
+    </tr>
+    <tr>
+        <td>格子31</td>
+        <td>格子32</td>
+        <td>格子33</td>
+        <td>格子34</td>
+    </tr>
+    <tr>
+        <td>格子41</td>
+        <td>格子42</td>
+        <td>格子43</td>
+        <td>格子44</td>
+    </tr>
+    <tfoot>
+        <tr>
+            <td colspan="4" class="table-end">表格制作者：2201020106黄勉嘉</td>
+        </tr>
+    </tfoot>
+    <caption class="table-title">表格标题斜体右对齐</caption>
+</table>
+
+</body>
+</html>
