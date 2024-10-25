@@ -1,0 +1,61 @@
+body {
+    width: 80%;
+    margin: 0 auto;
+}
+header {
+    border-top: 2px solid #f30909;
+    border-bottom: 2px solid #f30909;
+    width: 100%;
+    position: relative;
+    top: 0;
+    height: 100px;
+}
+a {
+    text-decoration: none;
+    background-color: transparent;
+    }
+
+    a:hover {
+        background-color: aqua;
+}
+header h1 {
+    font-size: 2em;
+    text-align: right;
+    line-height: 100px;
+}
+
+section {
+    width: 45%;
+    margin-top: 0%;
+    margin-left: 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+section li {
+    text-transform: uppercase;
+}
+
+aside {
+    width: 30%;
+    top: 0%;
+    margin-left: 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+nav {
+    position: relative;
+    top: 0;
+    width: 20%;
+    margin-left: 0;
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+footer {
+    border-top: 2px solid #f30909;
+    border-bottom: 2px solid #f30909;
+    bottom: 0;
+}
