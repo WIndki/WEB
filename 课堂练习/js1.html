@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>循环输出</title>
+</head>
+<body>
+    <!-- <script>
+        let str = 'HTML, CSS, JavaScript';
+        for (let i = 1; i <= 10; i++) {
+            output = '<p style="font-size:' + (50 - i*3) + 'px;">' + str + '黄勉嘉2201020106</p>';
+            document.write(output);
+        }
+    </script> -->
+</body>
+<script>
+    body = document.querySelector('body');
+    text_div = document.createElement('div');
+    for (let i = 1; i <= 10; i++) {
+        let p = document.createElement('p');
+        p.style.fontSize = 50 - i*3 + 'px';
+        p.innerHTML = 'HTML, CSS, JavaScript 黄勉嘉2201020106';
+        text_div.appendChild(p);
+    }
+    body.appendChild(text_div);
+    p = document.querySelectorAll('p');
+    for (let i = 0; i < p.length; i++) {
+        p[i].addEventListener('mouseenter', function() {
+            let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+            let index = 0;
+            let interval = setInterval(() => {
+                this.style.color = colors[index];
+                index = (index + 1) % colors.length;
+            }, 100);
+            fontSize = this.style.fontSize;
+            this.style.fontSize = '60px';
+            this.addEventListener('mouseleave', function() {
+                clearInterval(interval);
+                this.style.color = 'black';
+                this.style.fontSize = fontSize;
+            });
+        });
+    }
+</script>
+</html>
